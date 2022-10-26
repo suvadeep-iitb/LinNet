@@ -173,7 +173,7 @@ class SelfAttention(tf.keras.layers.Layer):
         output_initializer = _glorot_initializer(self.d_model, self.d_model)
         self.output_weight = self.add_weight(
                 "output_weight",
-                shape=(self.d_model, self.d_model),
+                shape=(self.n_head*self.size_per_head, self.d_model),
                 initializer=output_initializer,
                 dtype=tf.float32,
                 trainable=True)
