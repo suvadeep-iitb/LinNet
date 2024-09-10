@@ -38,7 +38,7 @@ DROPOUT=0.05
 CONV_KERNEL_SIZE=11
 POOL_SIZE=2
 D_KERNEL_MAP=512
-BETA_2=50
+BETA_HAT_2=50
 MODEL_NORM='preLC'
 HEAD_INIT='one_sided'
 SM_ATTN=True
@@ -80,7 +80,7 @@ if [[ $1 == 'train' ]]; then
         --conv_kernel_size=${CONV_KERNEL_SIZE} \
         --pool_size=${POOL_SIZE} \
 	--d_kernel_map=${D_KERNEL_MAP} \
-	--beta_2=${BETA_2} \
+	--beta_hat_2=${BETA_HAT_2} \
 	--model_normalization=${MODEL_NORM} \
 	--head_initialization=${HEAD_INIT} \
 	--softmax_attn=${SM_ATTN} \
@@ -118,7 +118,7 @@ elif [[ $1 == 'test' ]]; then
         --conv_kernel_size=${CONV_KERNEL_SIZE} \
         --pool_size=${POOL_SIZE} \
 	--d_kernel_map=${D_KERNEL_MAP} \
-	--beta_2=${BETA_2} \
+	--beta_hat_2=${BETA_HAT_2} \
 	--model_normalization=${MODEL_NORM} \
 	--head_initialization=${HEAD_INIT} \
 	--softmax_attn=${SM_ATTN} \
