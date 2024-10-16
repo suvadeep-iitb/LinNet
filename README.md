@@ -1,7 +1,7 @@
 # LinNet: A Shift-Invariant Transformer Network with Linear Computational Complexity for Side Channel Analysis
 
 This repository contains the implementation of LinNet, a shift invariant transformer network for Side Channel Analysis. LinNet has linear time 
-and memory complexity.
+and memory complexity with respect to input length.
 
 The implementation is composed of the following files:
 * **fast_attention.py:** It contains the code of the proposed self-attention layer.
