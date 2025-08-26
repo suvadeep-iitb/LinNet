@@ -53,10 +53,10 @@ LinNet achieves linear time and memory complexity with respect to the input leng
    ```
 4. Train LinNet:
    ```bash
-   bash run_script_\<dataset\>.sh train
+   bash run_trans_\<dataset\>.sh train
    ```
 5. Perform Evaluation:
    ```bash
-   bash run_script_\<dataset\>.sh test
+   bash run_trans_\<dataset\>.sh test
    ```
 ----
