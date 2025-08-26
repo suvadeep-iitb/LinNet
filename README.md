@@ -51,11 +51,11 @@ LinNet achieves linear time and memory complexity with respect to the input leng
    ```
    Open run_trans_\<dataset\>.sh and set the dataset path variable properly.
    ```
-4. Train LinNet:
+4. **Train LinNet:**
    ```bash
    bash run_trans_\<dataset\>.sh train
    ```
-5. Perform Evaluation:
+5. **Perform Evaluation:**
    ```bash
    bash run_trans_\<dataset\>.sh test
    ```
