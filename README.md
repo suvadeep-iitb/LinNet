@@ -1,19 +1,62 @@
-# LinNet: A Shift-Invariant Transformer Network with Linear Computational Complexity for Side Channel Analysis
+# LinNet: A Shift-Invariant Transformer Network with Linear Computational Complexity for Side-Channel Analysis
 
-This repository contains the implementation of LinNet, a shift invariant transformer network for Side Channel Analysis. LinNet has linear time 
-and memory complexity with respect to input length.
+This repository provides the implementation of LinNet, a shift-invariant Transformer network designed for Side-Channel Analysis (SCA).
+LinNet achieves linear time and memory complexity with respect to the input length, making it scalable for long traces.
 
-The implementation is composed of the following files:
-* **fast_attention.py:** It contains the code of the proposed self-attention layer.
-* **normalization.py:** It contains the code of layer-centering layer.
-* **transformer.py:** It contains the code of LinNet model.
-* **train_trans.py** It contains the code for training and evaluating the LinNet model.
-* **data_utils.py:** It contains the code for reading data from the ASCADf or ASCADr dataset.
-* **data_utils_ches20.py:** It contains the code for reading data from the CHES20 dataset.
-* **evaluation_utils.py:** It contains the code for computing the guessing entropy for the ASCAD datasets.
-* **evaluation_utils_ches20.py:** It contains the code for computing the guessing entropy for the CHES20 dataset.
-* **run_trans_\<dataset\>.sh:** It is the bash script with proper hyper-parameter setting to perform experiments 
-on dataset \<dataset\> where \<dataset\> is one of ASCADf ([ASCAD fixed key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA\_AES\_v1/ATM\_AES\_v1\_fixed\_key)), ASCADr ([ASCAD random key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA\_AES\_v1/ATM\_AES\_v1\_variable\_key)) and CHES20 ([CHES CTF 2020](https://ctf.spook.dev/)).
+---
+
+## Repository Structure
+- **`fast_attention.py`**  — Implementation of the proposed efficient self-attention layer.
+- **`normalization.py`**  — Implementation of the layer-centering normalization layer.
+- **`transformer.py`** — Definition of the full LinNet model.
+- **`train_trans.py`** — Training and evaluation pipeline for LinNet.
+- **`data_utils.py`** — Data loading utilities for ASCADf and ASCADr datasets.
+- **`data_utils_ches20.py`** — Data loading utilities for the CHES20 dataset.
+- **`evaluation_utils.py`** — Functions to compute guessing entropy/mean key rank for ASCAD datasets.
+- **`evaluation_utils_ches20.py`** — Functions to compute guessing entropy/mean key rank for CHES20 dataset.
+- **`run_trans_\<dataset\>.sh`**  — Bash scripts with recommended hyperparameters for:
+    - **ASCADf** ([ASCAD fixed key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA_AES_v1/ATM_AES_v1_fixed_key))
+    - **ASCADr** ([ASCAD random key](https://github.com/ANSSI-FR/ASCAD/tree/master/ATMEGA_AES_v1/ATM_AES_v1_variable_key))
+    - **CHES20** ([CHES CTF 2020](https://ctf.spook.dev/))
+
+---
 
 ## Data Pre-processing:
-* The traces of the CHES CTF 2020 dataset have been multiplied by the constant 0.004 to keep the range of the feature values within [-120, 120].
+- **CHES CTF 2020 dataset:** Traces are scaled by multiplying with `0.004` to keep feature values within the range **[-120, 120]**.  
+
+---
+
+## Tested on
+- Python 3.8.10  
+- absl-py == 2.3.1 
+- numpy == 1.24.3
+- scipy == 1.10.1
+- h5py == 3.11.0
+- tensorflow == 2.13.0
+
+---
+
+## Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/suvadeep-iitb/LinNet.git
+   cd LinNet
+   ```
+2. **Install dependencies (Python >= 3.8 recommended):**
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Set dataset path in the bash script:**
+   ```
+   Open run_trans_\<dataset\>.sh and set the dataset path variable properly.
+   ```
+4. Train LinNet:
+   ```bash
+   bash exp_script_\<dataset\>.sh train
+   ```
+5. Perform Evaluation:
+   ```bash
+   bash exp_script_\<dataset\>.sh test
+   ```
+----
